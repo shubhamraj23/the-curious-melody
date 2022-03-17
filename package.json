@@ -1,0 +1,26 @@
+{
+  "name": "the-curious-melody",
+  "version": "1.0.0",
+  "description": "A MERN stack web application used to create a blog website.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm backend/index.js",
+    "dev": "nodemon backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamraj23/the-curious-melody.git"
+  },
+  "author": "Shubham Raj Pandit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhamraj23/the-curious-melody/issues"
+  },
+  "homepage": "https://github.com/shubhamraj23/the-curious-melody#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
