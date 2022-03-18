@@ -7,17 +7,22 @@ if (process.env.NODE_ENV !== 'production'){
 const express = require('express')
 
 // Load all the required files
+const postRouter = require('./routers/postRouter')
+const adminRouter = require('./routers/adminRouter')
 
 // Set up MongoDB connection
 require('./mongoose')
 
+// Create app instance
 const app = express()
+app.use(express.json()) // Converts the request headers into JSON
+
+// Use all the different routers set up
+app.use(postRouter)
+app.use(adminRouter)
+
+// Run the server to listen on the specified port
 const port = process.env.PORT
-
-app.get('/', (request, response) => {
-  response.send('Hi')
-})
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
 })

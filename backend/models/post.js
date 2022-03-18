@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const {postTypes, languages} = require('../customization')
 
+// Creating schema for the Post model
 const postSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -32,18 +33,17 @@ const postSchema = new mongoose.Schema({
       }
     }
   },
+  tags: [{
+    type: String
+  }],
   parent: {
     type: mongoose.Schema.Types.ObjectId
   },
   children: [{
-    child: {
-      type: mongoose.Schema.Types.ObjectId
-    }
+    type: mongoose.Schema.Types.ObjectId
   }],
   siblings: [{
-    sibling: {
-      type: mongoose.Schema.Types.ObjectId
-    },
+    type: mongoose.Schema.Types.ObjectId
   }],
   sibling_number: {
     type: Number,
@@ -56,8 +56,6 @@ const postSchema = new mongoose.Schema({
 }, {
   timestamps: true
 })
-
-
 
 const Post = mongoose.model('Post', postSchema)
 module.exports = Post
