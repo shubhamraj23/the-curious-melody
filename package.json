@@ -2,10 +2,10 @@
   "name": "the-curious-melody",
   "version": "1.0.0",
   "description": "A MERN stack web application used to create a blog website.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "npm backend/index.js",
-    "dev": "nodemon backend/index.js"
+    "start": "npm backend/app.js",
+    "dev": "nodemon backend/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/shubhamraj23/the-curious-melody#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mongoose": "^6.2.7"
   },
   "devDependencies": {
+    "dotenv": "^16.0.0",
     "nodemon": "^2.0.15"
   }
 }
