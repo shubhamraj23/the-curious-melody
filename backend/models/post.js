@@ -5,7 +5,10 @@ const {postTypes, languages} = require('../customization')
 const postSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    trim: true
+  },
+  description: {
+    type: String,
     trim: true
   },
   content: {

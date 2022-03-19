@@ -8,13 +8,15 @@ const authorization = async (request, response, next) => {
     const availableToken = await Token.findOne({ token })
     if (!availableToken) {
       return response.status(400).send({
-        error: "Invalid request."
+        error: "Unauthenticated Access."
       })
     }
     request.token = token
     next()
   } catch (e) {
-    response.status(400).send('Unauthenticated Access.')
+    response.status(400).send({
+      error: "Unauthenticated Access."
+    })
   }
 }
 
