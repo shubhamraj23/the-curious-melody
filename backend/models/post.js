@@ -48,7 +48,7 @@ const postSchema = new mongoose.Schema({
   siblings: [{
     type: mongoose.Schema.Types.ObjectId
   }],
-  sibling_number: {
+  siblingNumber: {
     type: Number,
     validate(value) {
       if (value <= 0) {

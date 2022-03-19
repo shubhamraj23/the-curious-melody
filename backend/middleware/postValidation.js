@@ -1,3 +1,4 @@
+const Post = require('../models/post')
 const { mandatoryTitle, mandatoryDescription } = require('../customization')
 
 const validateCreation = (request, response, next) => {
@@ -16,6 +17,24 @@ const validateCreation = (request, response, next) => {
   next()
 }
 
+const validateType = async (request, response, next) => {
+  const { type } = request.body
+  const post = await Post.findById(request.params.id)
+  if (!post) {
+    return response.status(400).send({
+      error: "Invalid post Id."
+    })
+  }
+  if (type !== post.type) {
+    return response.status(400).send({
+      error: "The content type must be the same."
+    })
+  }
+  request.queryPost = post
+  next()
+}
+
 module.exports = {
-  validateCreation
+  validateCreation,
+  validateType
 }
