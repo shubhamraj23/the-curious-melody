@@ -7,8 +7,9 @@ if (process.env.NODE_ENV !== 'production'){
 const express = require('express')
 
 // Load all the required files
-const postRouter = require('./routers/postRouter')
 const adminRouter = require('./routers/adminRouter')
+const createPostRouter = require('./routers/createPostRouter')
+const updatePostRouter = require('./routers/updatePostRouter')
 
 // Set up MongoDB connection
 require('./mongoose')
@@ -18,8 +19,9 @@ const app = express()
 app.use(express.json()) // Converts the request headers into JSON
 
 // Use all the different routers set up
-app.use(postRouter)
 app.use(adminRouter)
+app.use(createPostRouter)
+app.use(updatePostRouter)
 
 // Run the server to listen on the specified port
 const port = process.env.PORT

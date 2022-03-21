@@ -1,5 +1,5 @@
 const Post = require('../models/post')
-const { mandatoryTitle, mandatoryDescription } = require('../customization')
+const { mandatoryTitle, mandatoryDescription, allowedPostUpdates } = require('../customization')
 
 const validateCreation = (request, response, next) => {
   const { type, title, description } = request.body
@@ -34,7 +34,21 @@ const validateType = async (request, response, next) => {
   next()
 }
 
+const validateUpdate = async (request, response, next) => {
+  const updates = Object.keys(request.body)
+  const isValidOperation = updates.every((update) => {
+    return allowedPostUpdates.includes(update)
+  })
+  if (!isValidOperation) {
+    return response.status(400).send({
+      error: "Invalid updates"
+    })
+  }
+  next()
+}
+
 module.exports = {
   validateCreation,
-  validateType
+  validateType,
+  validateUpdate
 }
