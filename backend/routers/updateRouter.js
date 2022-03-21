@@ -5,10 +5,9 @@ const { validateUpdate } = require('../middleware/postValidation')
 const router = new express.Router()
 
 // Route to update a post
-router.patch('/post/:id', authorization, validateUpdate, async (request, response) => {
+router.patch('/updatePost/:id', authorization, validateUpdate, async (request, response) => {
   try {
     const post = await Post.findById(request.params.id)
-    console.log(post)
     if (!post) {
       return response.status(400).send({
         error: "Invalid post Id."
@@ -28,9 +27,5 @@ router.patch('/post/:id', authorization, validateUpdate, async (request, respons
   }
 })
 
-// Route to mark a post as a subpost or sequel of another post
-router.patch('/add', authorization, async (request, response) => {
-
-})
 
 module.exports = router

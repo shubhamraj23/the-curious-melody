@@ -2,7 +2,7 @@ const express = require('express')
 const Post = require('../models/post')
 const Collection = require('../models/collection')
 const authorization = require('../middleware/authorization')
-const { validateCreation } = require('../middleware/postValidation')
+const { validateCreation, validateParent } = require('../middleware/postValidation')
 const router = new express.Router()
 
 // Route to create a new post
@@ -32,11 +32,11 @@ router.post('/createCollection', authorization, async (request, response) => {
 })
 
 // Router to create a parent post in a new collection
-router.post('/createCollectionWithParent', authorization, async (request, response) => {
+router.post('/createCollectionWithParent', authorization, validateParent, async (request, response) => {
   try {
-    const collection = new Collection()
+    const collection = new Collection({})
     const post = new Post(request.body)
-    post.collectionId = collection._id
+    post.collectionID = collection._id
     collection.parent = post._id
     await collection.save()
     await post.save()
@@ -54,10 +54,16 @@ router.post('/createCollectionWithParent', authorization, async (request, respon
 // Router to create a post in an existing collection
 router.post('/createPost/:id', authorization, validateCreation, async (request, response) => {
   try {
-    const post = new Post(request.body)
     const collection = await Collection.findById(request.params.id)
-    post.collectionId = request.params.id
-    collection.children.append(post._id)
+    if (!collection) {
+      return response.status(400).send({
+        error: "Invalid Collection Id"
+      })
+    }
+
+    const post = new Post(request.body)
+    post.collectionID = request.params.id
+    collection.children.push(post._id)
     await collection.save()
     await post.save()
     response.status(201).send(post._id)
