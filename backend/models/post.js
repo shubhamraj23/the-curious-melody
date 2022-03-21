@@ -18,7 +18,6 @@ const postSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    required: true,
     trim: true,
     validate(value) {
       if (!postTypes.includes(value)) {
@@ -28,7 +27,6 @@ const postSchema = new mongoose.Schema({
   },
   language: {
     type: String,
-    required: true,
     trim: true,
     validate(value) {
       if (!languages.includes(value)) {
@@ -39,22 +37,8 @@ const postSchema = new mongoose.Schema({
   tags: [{
     type: String
   }],
-  parent: {
-    type: mongoose.Schema.Types.ObjectId
-  },
-  children: [{
-    type: mongoose.Schema.Types.ObjectId
-  }],
-  siblings: [{
-    type: mongoose.Schema.Types.ObjectId
-  }],
-  siblingNumber: {
-    type: Number,
-    validate(value) {
-      if (value <= 0) {
-        throw new Error('Sibling count must start from 1.')
-      }
-    }
+  collectionID: {
+    type: mongoose.Schema.Types.ObjectId,
   }
 }, {
   timestamps: true

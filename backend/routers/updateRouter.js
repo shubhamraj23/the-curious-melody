@@ -29,5 +29,8 @@ router.patch('/post/:id', authorization, validateUpdate, async (request, respons
 })
 
 // Route to mark a post as a subpost or sequel of another post
+router.patch('/add', authorization, async (request, response) => {
+
+})
 
 module.exports = router

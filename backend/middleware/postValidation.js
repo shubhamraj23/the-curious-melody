@@ -2,8 +2,13 @@ const Post = require('../models/post')
 const { mandatoryTitle, mandatoryDescription, allowedPostUpdates } = require('../customization')
 
 const validateCreation = (request, response, next) => {
-  const { type, title, description } = request.body
+  const { type, title, description, language } = request.body
 
+  if (!(language && type)){
+    return response.status(400).send({
+      error: `Language and Type field are mandatory.`
+    })
+  }
   if (mandatoryTitle.includes(type) && !title){
     return response.status(400).send({
       error: `A title is mandatory for ${type}.`
@@ -14,23 +19,6 @@ const validateCreation = (request, response, next) => {
       error: `A description is mandatory for ${type}.`
     })
   }
-  next()
-}
-
-const validateType = async (request, response, next) => {
-  const { type } = request.body
-  const post = await Post.findById(request.params.id)
-  if (!post) {
-    return response.status(400).send({
-      error: "Invalid post Id."
-    })
-  }
-  if (type !== post.type) {
-    return response.status(400).send({
-      error: "The content type must be the same."
-    })
-  }
-  request.queryPost = post
   next()
 }
 
@@ -49,6 +37,5 @@ const validateUpdate = async (request, response, next) => {
 
 module.exports = {
   validateCreation,
-  validateType,
   validateUpdate
 }
