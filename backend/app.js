@@ -10,6 +10,7 @@ const express = require('express')
 const adminRouter = require('./routers/adminRouter')
 const createRouter = require('./routers/createRouter')
 const updateRouter = require('./routers/updateRouter')
+const deleteRouter = require('./routers/deleteRouter')
 
 // Set up MongoDB connection
 require('./mongoose')
@@ -22,6 +23,7 @@ app.use(express.json()) // Converts the request headers into JSON
 app.use(adminRouter)
 app.use(createRouter)
 app.use(updateRouter)
+app.use(deleteRouter)
 
 // Run the server to listen on the specified port
 const port = process.env.PORT

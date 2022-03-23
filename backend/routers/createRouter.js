@@ -78,4 +78,36 @@ router.post('/createPost/:id', authentication, validateCreation, async (request,
   }
 })
 
+// Router to add parent to an existing collection
+router.post('/addParent/:id', authentication, validateParent, async (request, response) => {
+  try {
+    const collection = await Collection.findById(request.params.id)
+    if (!collection) {
+      return response.status(400).send({
+        error: "Invalid Collection Id."
+      })
+    }
+
+    if (collection.parent) {
+      return response.status(400).send({
+        error: 'Collection already has a parent.'
+      })
+    }
+
+    const post = new Post(request.body)
+    post.collectionID = collection._id
+    collection.parent = post._id
+    await collection.save()
+    await post.save()
+    response.status(201).send(post._id)
+
+  } catch (e) {
+    console.log(e)
+    response.status(500).send({
+      error: "Something unprecendented happened. Please try again."
+    })
+  }
+})
+
+
 module.exports = router
