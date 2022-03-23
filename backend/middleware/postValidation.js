@@ -12,20 +12,7 @@ const {
   parentAllowedUpdates
 } = require('../customization')
 
-const validateContents = (body) => {
-  if (!body.type) {
-    return false
-  }
-  const fields = Object.keys(body)
-  if (categoryOne.includes(body.type)) {
-    return categoryOneMandatory.every((mandatoryField) => fields.includes(mandatoryField))
-  }
-  else if (categoryTwo.includes(body.type)) {
-    return fields.every((field) => categoryTwoOnly.includes(field))
-  }
-  return false
-}
-
+// Check if the contents of a new post are valid.
 const validateCreation = (request, response, next) => {
   const isContentValid = validateContents(request.body)
   if (!isContentValid){
@@ -36,6 +23,7 @@ const validateCreation = (request, response, next) => {
   next()
 }
 
+// Check if contents of a new parent post are valid.
 const validateParent = (request, response, next) => {
   const fields = Object.keys(request.body)
   const isContentComplete = parentMandatory.every((mandatoryField) => fields.includes(mandatoryField))
@@ -48,6 +36,7 @@ const validateParent = (request, response, next) => {
   next()
 }
 
+// Check if the contents of the provided update operation are valid.
 const validateUpdate = async (request, response, next) => {
   const post = await Post.findById(request.params.id)
   if (!post) {
@@ -81,6 +70,21 @@ const validateUpdate = async (request, response, next) => {
     })
   }
   next()
+}
+
+// Helper functions
+const validateContents = (body) => {
+  if (!body.type) {
+    return false
+  }
+  const fields = Object.keys(body)
+  if (categoryOne.includes(body.type)) {
+    return categoryOneMandatory.every((mandatoryField) => fields.includes(mandatoryField))
+  }
+  else if (categoryTwo.includes(body.type)) {
+    return fields.every((field) => categoryTwoOnly.includes(field))
+  }
+  return false
 }
 
 module.exports = {

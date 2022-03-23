@@ -1,7 +1,7 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const Token = require('../models/tokens')
-const authorization = require('../middleware/authorization')
+const authentication = require('../middleware/authorization')
 const router = new express.Router()
 
 const adminUser = {
@@ -29,7 +29,7 @@ router.post('/admin/login', async (request, response) => {
 })
 
 // Logout current session route
-router.post('/admin/logout', authorization, async (request, response) => {
+router.post('/admin/logout', authentication, async (request, response) => {
   try {
     await Token.deleteOne({ token: request.token })
     response.status(200).send()
@@ -42,7 +42,7 @@ router.post('/admin/logout', authorization, async (request, response) => {
 })
 
 // Logout all session routes
-router.post('/admin/logoutAll', authorization, async (request, response) => {
+router.post('/admin/logoutAll', authentication, async (request, response) => {
   try {
     await Token.deleteMany({})
     response.status(200).send()
