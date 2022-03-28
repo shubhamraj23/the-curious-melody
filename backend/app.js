@@ -9,6 +9,7 @@ const express = require('express')
 // Load all the required files
 const adminRouter = require('./routers/adminRouter')
 const createRouter = require('./routers/createRouter')
+const readRouter = require('./routers/readRouter')
 const updateRouter = require('./routers/updateRouter')
 const deleteRouter = require('./routers/deleteRouter')
 
@@ -22,6 +23,7 @@ app.use(express.json()) // Converts the request headers into JSON
 // Use all the different routers set up
 app.use(adminRouter)
 app.use(createRouter)
+app.use(readRouter)
 app.use(updateRouter)
 app.use(deleteRouter)
 
