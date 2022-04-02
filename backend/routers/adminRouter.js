@@ -23,7 +23,7 @@ router.post('/admin/login', async (request, response) => {
     response.status(200).send(token)
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -36,7 +36,7 @@ router.post('/admin/logout', authentication, async (request, response) => {
   }
   catch {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -49,7 +49,7 @@ router.post('/admin/logoutAll', authentication, async (request, response) => {
   }
   catch {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })

@@ -14,7 +14,7 @@ router.post('/createPost', authentication, validateCreation, async (request, res
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -28,7 +28,7 @@ router.post('/createCollection', authentication, async (request, response) => {
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -49,7 +49,7 @@ router.post('/createCollectionWithParent', authentication, validateParent, async
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -73,7 +73,7 @@ router.post('/createPost/:id', authentication, validateCreation, async (request,
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -104,7 +104,7 @@ router.post('/addParent/:id', authentication, validateParent, async (request, re
   } catch (e) {
     console.log(e)
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })

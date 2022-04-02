@@ -16,7 +16,7 @@ router.get('/post/:id', async (request, response) => {
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -45,7 +45,7 @@ router.get('/collection/:id', async (request, response) => {
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })

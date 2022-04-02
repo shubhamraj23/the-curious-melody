@@ -24,7 +24,7 @@ router.patch('/updatePost/:id', authentication, validateUpdate, async (request, 
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -55,7 +55,7 @@ router.patch('/linkToCollection/:postId/:collectionId', authentication, async (r
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -95,7 +95,7 @@ router.patch('/unlinkFromCollection/:postId', authentication, async (request, re
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -121,7 +121,7 @@ router.patch('/individualPosts/:collectionId', authentication, async (request, r
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -167,7 +167,7 @@ router.patch('/reorderPosts/:collectionId', authentication, async (request, resp
   } catch(e) {
     console.log(e)
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })

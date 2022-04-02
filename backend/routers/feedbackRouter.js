@@ -1,7 +1,6 @@
 const express = require('express')
 const Feedback = require('../models/feedback')
 const Post = require('../models/post')
-const Collection = require('../models/collection')
 const authentication = require('../middleware/authorization')
 const { checkProfane, checkLength, validateFeedbackUpdate } = require('../middleware/feedbackValidation')
 const router = new express.Router()
@@ -10,10 +9,9 @@ const router = new express.Router()
 router.post('/feedback/:id', checkProfane, checkLength, async (request, response) => {
   try {
     const post = await Post.findById(request.params.id)
-    const collection = await Collection.findById(request.params.id)
-    if (!post && !collection){
+    if (!post){
       return response.status(400).send({
-        error: "Invalid Id."
+        error: "Invalid Post Id."
       })
     }
 
@@ -26,7 +24,7 @@ router.post('/feedback/:id', checkProfane, checkLength, async (request, response
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -45,7 +43,7 @@ router.delete('/feedback/:id', authentication, async (request, response) => {
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -69,7 +67,62 @@ router.patch('/feedback/:id', authentication, checkProfane, validateFeedbackUpda
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
+    })
+  }
+})
+
+// Router to get all the feedbacks related to a post for an admin
+router.get('/feedbackAll/:id', authentication, async(request, response) => {
+  try {
+    const post = await Post.findById(request.params.id)
+    if (!post){
+      return response.status(400).send({
+        error: "Invalid Post Id."
+      })
+    }
+
+    const feedbacks = await Feedback.find({ linkID: request.params.id })
+    response.status(200).send(feedbacks)
+
+  } catch (e) {
+    response.status(500).send({
+      error: "Something unprecedented happened. Please try again."
+    })
+  }
+})
+
+// Router to get visible feedback for a post with anonymized names.
+router.get('/feedback/:id', async (request, response) => {
+  try {
+    const post = await Post.findById(request.params.id)
+    if (!post){
+      return response.status(400).send({
+        error: "Invalid Post Id."
+      })
+    }
+
+    const feedbacks = await Feedback.find({
+      linkID: request.params.id,
+      visibility: true
+    })
+
+    const anonymizedFeedback = feedbacks.map((feedback) => {
+      if (feedback.anonymity) {
+        feedback.name = 'Anonymous'
+      }
+
+      return {
+        name: feedback.name,
+        feedback: feedback.feedback,
+        createdAt: feedback.createdAt
+      }
+    })
+    response.status(200).send(anonymizedFeedback)
+
+  } catch (e) {
+    response.status(500).send({
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })

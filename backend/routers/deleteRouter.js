@@ -30,7 +30,7 @@ router.delete('/post/:id', authentication, async (request, response) => {
   } catch (e) {
     console.log(e)
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
@@ -55,7 +55,7 @@ router.delete('/collection/:id', authentication, async (request, response) => {
 
   } catch (e) {
     response.status(500).send({
-      error: "Something unprecendented happened. Please try again."
+      error: "Something unprecedented happened. Please try again."
     })
   }
 })
