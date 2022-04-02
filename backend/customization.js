@@ -9,6 +9,8 @@ const categoryTwoAllowedUpdates = ['content', 'tags', 'language']
 const parentMandatory = ['title', 'description']
 const parentOnly = ['title', 'description', 'tags']
 const parentAllowedUpdates = ['title', 'description', 'tags']
+const feedbackAllowedUpdates = ['name', 'feedback']
+const removeBadFilter = ['hell', 'sadist', 'hells']
 
 module.exports = {
   postTypes,
@@ -21,5 +23,7 @@ module.exports = {
   categoryTwoAllowedUpdates,
   parentMandatory,
   parentOnly,
-  parentAllowedUpdates
+  parentAllowedUpdates,
+  feedbackAllowedUpdates,
+  removeBadFilter
 }

@@ -12,6 +12,7 @@ const createRouter = require('./routers/createRouter')
 const readRouter = require('./routers/readRouter')
 const updateRouter = require('./routers/updateRouter')
 const deleteRouter = require('./routers/deleteRouter')
+const feedbackRouter = require('./routers/feedbackRouter')
 
 // Set up MongoDB connection
 require('./mongoose')
@@ -26,6 +27,7 @@ app.use(createRouter)
 app.use(readRouter)
 app.use(updateRouter)
 app.use(deleteRouter)
+app.use(feedbackRouter)
 
 // Run the server to listen on the specified port
 const port = process.env.PORT

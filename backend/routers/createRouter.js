@@ -109,5 +109,4 @@ router.post('/addParent/:id', authentication, validateParent, async (request, re
   }
 })
 
-
 module.exports = router

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/shubhamraj23/the-curious-melody#readme",
   "dependencies": {
+    "bad-words": "^3.0.4",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.7"
