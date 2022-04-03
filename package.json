@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "npm backend/app.js",
-    "dev": "nodemon backend/app.js"
+    "build:css": "tailwindcss -i ./frontend/src/input.css -o ./frontend/src/styles.css --watch",
+    "client": "npm start --prefix frontend",
+    "server": "nodemon backend/app.js",
+    "dev": "concurrently \"npm run build:css\" \"npm run client\" \"npm run server\" "
   },
   "repository": {
     "type": "git",
@@ -24,7 +27,9 @@
     "mongoose": "^6.2.7"
   },
   "devDependencies": {
+    "concurrently": "^7.1.0",
     "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "tailwindcss": "^3.0.23"
   }
 }
