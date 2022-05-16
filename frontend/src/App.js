@@ -1,8 +1,13 @@
-function App() {
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header"
+
+const App = () => {
   return (
    <div>
-     Hello World
-   </div> 
+     <Router>
+      <Header />
+     </Router>
+   </div>
   )
 }
 
