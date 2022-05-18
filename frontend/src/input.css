@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body::-webkit-scrollbar { 
+  display: none 
+}
+
+.nav-fix {
+  position: fixed;
+  top: 0;
+}
+
+.nav-small-hide {
+  display: none;
+}
+
+.nav-small-show {
+  display: block;
+}

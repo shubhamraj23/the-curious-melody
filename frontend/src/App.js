@@ -3,11 +3,11 @@ import Header from "./components/Header"
 
 const App = () => {
   return (
-   <div>
-     <Router>
-      <Header />
-     </Router>
-   </div>
+    <div>
+      <Router>
+        <Header />
+      </Router>
+    </div>
   )
 }
 
