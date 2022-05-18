@@ -17,7 +17,7 @@ const getActive = () => {
 
 const Header = () => {
   const [active, setActive] = useState(getActive())
-  const [navItems, setNavItems] = useState("nav-small-hide")
+  const [navItems, setNavItems] = useState("nav-hide")
   const width = window.innerWidth/3
   
   const activeText = 'text-white cursor-default'
@@ -36,95 +36,97 @@ const Header = () => {
   }
 
   const toggleNav = () => {
-    if (navItems === "nav-small-hide"){
-      setNavItems("nav-small-show")
+    if (navItems === "nav-hide"){
+      setNavItems("nav-show")
     }
     else {
-      setNavItems("nav-small-hide")
+      setNavItems("nav-hide")
     }
   }
 
   return (
-    <nav className="bg-emerald-300 nav-fix w-full">
-      <div className="mx-auto">
-        <div className="flex justify-between">
-          <div className="hidden md:flex">
-            <div className="flex">
-              <div 
-                className={active === "Home" ? `${activeBackground} ${activeCursor}` : `${inactiveBackground} ${inactiveCursor}`}
-                style={{"width": `${width}px`}}
-              >
-                <Link to="/" onClick={changeActive}>
-                  <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Home" ? activeText : inactiveText}`}>
-                    Home
-                  </p>
-                </Link>
-              </div>
+    <div>
+      <nav className="bg-emerald-300 nav-fix w-full">
+        <div className="mx-auto">
+          <div className="flex justify-between">
+            <div className="hidden md:flex">
+              <div className="flex">
+                <div 
+                  className={active === "Home" ? `${activeBackground} ${activeCursor}` : `${inactiveBackground} ${inactiveCursor}`}
+                  style={{"width": `${width}px`}}
+                >
+                  <Link to="/" onClick={changeActive}>
+                    <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Home" ? activeText : inactiveText}`}>
+                      Home
+                    </p>
+                  </Link>
+                </div>
 
-              <div
-                className={`border-x-2 ${active === "Blog" ? `${activeBackground} ${activeCursor}` : `${inactiveBackground} ${inactiveCursor}`}`}
-                style={{"width": `${width}px`}}
-              >
-                <Link to="/blog" onClick={changeActive}>
-                  <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Blog" ? activeText : inactiveText}`}>
-                    Blog
-                  </p>
-                </Link>
-              </div>
+                <div
+                  className={`border-x-2 ${active === "Blog" ? `${activeBackground} ${activeCursor}` : `${inactiveBackground} ${inactiveCursor}`}`}
+                  style={{"width": `${width}px`}}
+                >
+                  <Link to="/blog" onClick={changeActive}>
+                    <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Blog" ? activeText : inactiveText}`}>
+                      Blog
+                    </p>
+                  </Link>
+                </div>
 
-              <div
-                className={active === "Leave a Review" ? `${activeBackground} ${activeCursor}` : `${inactiveBackground} ${inactiveCursor}`}
-                style={{"width": `${width}px`}}
-              >
-                <Link to="/review" onClick={changeActive}>
-                  <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Leave a Review"? activeText : inactiveText}`}>
-                    Leave a Review
-                  </p>
-                </Link>
+                <div
+                  className={active === "Leave a Review" ? `${activeBackground} ${activeCursor}` : `${inactiveBackground} ${inactiveCursor}`}
+                  style={{"width": `${width}px`}}
+                >
+                  <Link to="/review" onClick={changeActive}>
+                    <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Leave a Review"? activeText : inactiveText}`}>
+                      Leave a Review
+                    </p>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-          
-          <div className="md:hidden">
-            <div className="flex">
-              <div className="p-4" style={{height: "50px"}}>
-                <button className="outline-none" onClick={toggleNav}>
-                  <FaBars className={`text-lg ${navItems === "nav-small-hide" ? inactiveNav : activeNav}`}/>
-                </button>
+            
+            <div className="md:hidden">
+              <div className="flex">
+                <div className="p-4" style={{height: "50px"}} onClick={toggleNav}>
+                  <button className="outline-none">
+                    <FaBars className={`text-lg ${navItems === "nav-hide" ? inactiveNav : activeNav}`}/>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        
-        <div className="md:hidden">
-          <ul className={navItems}>
-            <li className={active === "Home" ? activeBackground : inactiveBackground}>
-              <Link to="/" onClick={changeActive}>
-                <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Home" ? activeText : inactiveText}`}>
-                  Home
-                </p>
-              </Link>
-            </li>
+      </nav>
 
-            <li className={active === "Blog" ? activeBackground : inactiveBackground}>
-              <Link to="/blog" onClick={changeActive}>
-                <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Blog" ? activeText : inactiveText}`}>
-                  Blog
-                </p>
-              </Link>
-            </li>
+      <div className="md:hidden">
+        <ul className={`${navItems} w-full bg-emerald-300`}>
+          <li className={active === "Home" ? activeBackground : inactiveBackground}>
+            <Link to="/" onClick={changeActive}>
+              <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Home" ? activeText : inactiveText}`}>
+                Home
+              </p>
+            </Link>
+          </li>
 
-            <li className={active === "Leave a Review" ? activeBackground : inactiveBackground}>
-              <Link to="/review" onClick={changeActive}>
-                <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Leave a Review" ? activeText : inactiveText}`}>
-                  Leave a Review
-                </p>
-              </Link>
-            </li>
-          </ul>
-        </div>
+          <li className={active === "Blog" ? activeBackground : inactiveBackground}>
+            <Link to="/blog" onClick={changeActive}>
+              <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Blog" ? activeText : inactiveText}`}>
+                Blog
+              </p>
+            </Link>
+          </li>
+
+          <li className={active === "Leave a Review" ? activeBackground : inactiveBackground}>
+            <Link to="/review" onClick={changeActive}>
+              <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Leave a Review" ? activeText : inactiveText}`}>
+                Leave a Review
+              </p>
+            </Link>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
   )
 }
 
