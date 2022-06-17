@@ -5,7 +5,7 @@ import Blog from "./Blog"
 import Review from "./Review"
 
 const Body = () => {
-  const [topMargin, setTopMargin] = useState('50px')
+  const [topMargin, setTopMargin] = useState('50')
   
   useEffect(() => {
     setTopMargin(document.getElementsByClassName('nav-fix')[0].offsetHeight)

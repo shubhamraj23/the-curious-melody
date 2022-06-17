@@ -32,6 +32,15 @@ body::-webkit-scrollbar {
   background-color: #727272;
 }
 
+/* Font Families */
+.permanent-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.patrick-hand {
+  font-family: 'Patrick Hand', cursive;
+}
+
 /* Navigation Bar */
 .nav-fix {
   position: fixed;
@@ -51,4 +60,16 @@ body::-webkit-scrollbar {
   top: 50px;
   transition: top linear 0.3s;
   z-index: 0.5;
+}
+
+/* Tagline */
+.tagline-font {
+  font-size: 3.5vw;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .tagline-font {
+    font-size: 2.5vw;
+  }
 }

@@ -56,7 +56,7 @@ const Header = () => {
                   style={{"width": `${width}px`}}
                 >
                   <Link to="/" onClick={changeActive}>
-                    <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Home" ? activeText : inactiveText}`}>
+                    <p className={`mx-auto py-4 text-center text-lg permanent-marker ${active === "Home" ? activeText : inactiveText}`}>
                       Home
                     </p>
                   </Link>
@@ -67,7 +67,7 @@ const Header = () => {
                   style={{"width": `${width}px`}}
                 >
                   <Link to="/blog" onClick={changeActive}>
-                    <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Blog" ? activeText : inactiveText}`}>
+                    <p className={`mx-auto py-4 text-center text-lg permanent-marker ${active === "Blog" ? activeText : inactiveText}`}>
                       Blog
                     </p>
                   </Link>
@@ -78,7 +78,7 @@ const Header = () => {
                   style={{"width": `${width}px`}}
                 >
                   <Link to="/review" onClick={changeActive}>
-                    <p className={`mx-auto py-4 font-semibold text-center text-lg ${active === "Leave a Review"? activeText : inactiveText}`}>
+                    <p className={`mx-auto py-4 text-center text-lg permanent-marker ${active === "Leave a Review"? activeText : inactiveText}`}>
                       Leave a Review
                     </p>
                   </Link>
@@ -103,7 +103,7 @@ const Header = () => {
         <ul className={`${navItems} w-full nav-base`}>
           <li className={active === "Home" ? activeBackground : inactiveBackground}>
             <Link to="/" onClick={changeActive}>
-              <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Home" ? activeText : inactiveText}`}>
+              <p className={`px-4 py-2 text-left text-base permanent-marker ${active === "Home" ? activeText : inactiveText}`}>
                 Home
               </p>
             </Link>
@@ -111,7 +111,7 @@ const Header = () => {
 
           <li className={active === "Blog" ? activeBackground : inactiveBackground}>
             <Link to="/blog" onClick={changeActive}>
-              <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Blog" ? activeText : inactiveText}`}>
+              <p className={`px-4 py-2 text-left text-base permanent-marker ${active === "Blog" ? activeText : inactiveText}`}>
                 Blog
               </p>
             </Link>
@@ -119,7 +119,7 @@ const Header = () => {
 
           <li className={active === "Leave a Review" ? activeBackground : inactiveBackground}>
             <Link to="/review" onClick={changeActive}>
-              <p className={`px-4 py-2 font-semibold text-left text-base ${active === "Leave a Review" ? activeText : inactiveText}`}>
+              <p className={`px-4 py-2 text-left text-base permanent-marker ${active === "Leave a Review" ? activeText : inactiveText}`}>
                 Leave a Review
               </p>
             </Link>

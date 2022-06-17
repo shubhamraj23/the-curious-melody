@@ -56,7 +56,7 @@ const Footer = () => {
 
               <div className="col-span-5">
                 <a href="https://shubhamraj23.github.io/personal-portfolio" target="_blank" rel="noreferrer">
-                  <p className="text-sm md:text-base text-white font-semibold">
+                  <p className="text-sm md:text-base text-white font-semibold hover:text-black">
                     Personal Portfolio
                   </p>
                 </a>
@@ -72,7 +72,7 @@ const Footer = () => {
 
               <div className="col-span-5">
                 <a href="https://shubhamraj23.github.io/escape-room" target="_blank" rel="noreferrer">
-                  <p className="text-sm md:text-base text-white font-semibold">
+                  <p className="text-sm md:text-base text-white font-semibold hover:text-black">
                     Virtual Escape Room
                   </p>
                 </a>
