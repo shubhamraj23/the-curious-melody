@@ -44,6 +44,11 @@ const Header = () => {
     }
   }
 
+  const changeActiveSmall = (e) => {
+    toggleNav()
+    changeActive(e)
+  }
+
   return (
     <div>
       <nav className="nav-base nav-fix w-full">
@@ -102,7 +107,7 @@ const Header = () => {
       <div className="md:hidden">
         <ul className={`${navItems} w-full nav-base`}>
           <li className={active === "Home" ? activeBackground : inactiveBackground}>
-            <Link to="/" onClick={changeActive}>
+            <Link to="/" onClick={changeActiveSmall}>
               <p className={`px-4 py-2 text-left text-base permanent-marker ${active === "Home" ? activeText : inactiveText}`}>
                 Home
               </p>
@@ -110,7 +115,7 @@ const Header = () => {
           </li>
 
           <li className={active === "Blog" ? activeBackground : inactiveBackground}>
-            <Link to="/blog" onClick={changeActive}>
+            <Link to="/blog" onClick={changeActiveSmall}>
               <p className={`px-4 py-2 text-left text-base permanent-marker ${active === "Blog" ? activeText : inactiveText}`}>
                 Blog
               </p>
@@ -118,7 +123,7 @@ const Header = () => {
           </li>
 
           <li className={active === "Leave a Review" ? activeBackground : inactiveBackground}>
-            <Link to="/review" onClick={changeActive}>
+            <Link to="/review" onClick={changeActiveSmall}>
               <p className={`px-4 py-2 text-left text-base permanent-marker ${active === "Leave a Review" ? activeText : inactiveText}`}>
                 Leave a Review
               </p>

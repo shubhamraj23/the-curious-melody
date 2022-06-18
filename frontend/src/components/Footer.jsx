@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="grid grid-cols-6 mb-2">
               <div className="col-span-1">
                 <div className="flex align-middle">
-                  <ImLocation className="text-lg text-white mx-auto" />
+                  <ImLocation className="text-lg text-black mx-auto" />
                 </div>
               </div>
 
@@ -30,7 +30,7 @@ const Footer = () => {
             <div className="grid grid-cols-6 my-2">
               <div className="col-span-1">
                 <div className="flex align-middle">
-                  <MdEmail className="text-lg text-white mx-auto" />
+                  <MdEmail className="text-lg text-black mx-auto" />
                 </div>
               </div>
 
@@ -50,7 +50,7 @@ const Footer = () => {
             <div className="grid grid-cols-6 mb-2">
               <div className="col-span-1">
                 <div className="flex align-middle">
-                  <MdWeb className="text-lg text-white mx-auto" />
+                  <MdWeb className="text-lg text-black mx-auto" />
                 </div>
               </div>
 
@@ -66,7 +66,7 @@ const Footer = () => {
             <div className="grid grid-cols-6 my-2">
               <div className="col-span-1">
                 <div className="flex align-middle">
-                  <MdMeetingRoom className="text-lg text-white mx-auto" />
+                  <MdMeetingRoom className="text-lg text-black mx-auto" />
                 </div>
               </div>
 

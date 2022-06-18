@@ -488,6 +488,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -506,6 +526,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .hidden {
   display: none;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-full {
@@ -530,6 +554,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -646,14 +674,6 @@ body::-webkit-scrollbar {
 
 /* Colours */
 
-.nav-active {
-  background-color: #383838;
-}
-
-.nav-base {
-  background-color: #727272;
-}
-
 .bg-shade-1 {
   background-color: black;
 }
@@ -667,17 +687,35 @@ body::-webkit-scrollbar {
 }
 
 .bg-shade-4 {
-  background-color: #727272;
+  background-color: #6b6b6b;
+}
+
+.nav-active {
+  background-color: #383838;
+}
+
+.nav-base {
+  background-color: #808080;
 }
 
 /* Font Families */
 
-.permanent-marker {
-  font-family: 'Permanent Marker', cursive;
+@font-face {
+  font-family: Cassandra;
+
+  src: url(media/Cassandra\ Personal\ Use.ttf);
+}
+
+.cassandra {
+  font-family: Cassandra;
 }
 
 .patrick-hand {
   font-family: 'Patrick Hand', cursive;
+}
+
+.permanent-marker {
+  font-family: 'Permanent Marker', cursive;
 }
 
 /* Navigation Bar */
@@ -715,14 +753,30 @@ body::-webkit-scrollbar {
   }
 }
 
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+/* Images */
+
+.rounded-border {
+  border-radius: 100%;
+}
+
+.profile-width {
+  max-width: 200px;
+}
+
+@media (min-width: 768px) {
+  .profile-width {
+    max-width: 300px;
+  }
 }
 
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
@@ -732,6 +786,20 @@ body::-webkit-scrollbar {
 
   .md\:bottom-0 {
     bottom: 0px;
+  }
+
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .md\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .md\:mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 
   .md\:flex {
@@ -750,6 +818,14 @@ body::-webkit-scrollbar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:justify-center {
+    justify-content: center;
+  }
+
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
@@ -758,5 +834,10 @@ body::-webkit-scrollbar {
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }

@@ -8,14 +8,6 @@ body::-webkit-scrollbar {
 }
 
 /* Colours */
-.nav-active {
-  background-color: #383838;
-}
-
-.nav-base {
-  background-color: #727272;
-}
-
 .bg-shade-1 {
   background-color: black;
 }
@@ -29,16 +21,33 @@ body::-webkit-scrollbar {
 }
 
 .bg-shade-4 {
-  background-color: #727272;
+  background-color: #6b6b6b;
+}
+
+.nav-active {
+  background-color: #383838;
+}
+
+.nav-base {
+  background-color: #808080;
 }
 
 /* Font Families */
-.permanent-marker {
-  font-family: 'Permanent Marker', cursive;
+@font-face {
+  font-family: Cassandra;
+  src: url(media/Cassandra\ Personal\ Use.ttf);
+}
+
+.cassandra {
+  font-family: Cassandra;
 }
 
 .patrick-hand {
   font-family: 'Patrick Hand', cursive;
+}
+
+.permanent-marker {
+  font-family: 'Permanent Marker', cursive;
 }
 
 /* Navigation Bar */
@@ -71,5 +80,20 @@ body::-webkit-scrollbar {
 @media (min-width: 768px) {
   .tagline-font {
     font-size: 2.5vw;
+  }
+}
+
+/* Images */
+.rounded-border {
+  border-radius: 100%;
+}
+
+.profile-width {
+  max-width: 200px;
+}
+
+@media (min-width: 768px) {
+  .profile-width {
+    max-width: 300px;
   }
 }
