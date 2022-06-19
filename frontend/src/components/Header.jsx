@@ -51,7 +51,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="nav-base nav-fix w-full">
+      <nav className="nav-base nav-fix w-full" id="header">
         <div className="mx-auto">
           <div className="flex justify-between">
             <div className="hidden md:flex">

@@ -3,7 +3,7 @@ import { ImLocation } from "react-icons/im";
 
 const Footer = () => {
   return (
-    <div className="nav-base">
+    <div className="nav-base" id="footer">
       <div className="py-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="px-4">

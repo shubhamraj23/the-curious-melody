@@ -9,7 +9,7 @@ const Home = () => {
   const [imageMargin, setImageMargin] = useState('0')
 
   useEffect(() => {
-    const screenHeight = window.innerHeight - document.getElementsByClassName('nav-fix')[0].offsetHeight
+    const screenHeight = window.innerHeight - document.getElementById('header').offsetHeight
     setHeight(screenHeight)
     if (window.innerWidth >= 768) {
       setBoxHeight(`${screenHeight}px`)
@@ -40,8 +40,16 @@ const Home = () => {
       </div>
 
       <div className="bg-shade-3">
-        <div style={{height: `${divHeight}px`}}>
-          {/* Recent Posts */}
+        <div className="py-8">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="mx-4">
+              <p className="text-xl md:text-3xl permanent-marker text-center">Recently Published</p>
+            </div>
+
+            <div className="mx-4">
+              <p className="text-xl md:text-3xl permanent-marker text-center">Most Viewed</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -56,9 +64,15 @@ const Home = () => {
               <div style={{marginTop: `${marginTop}px`}}>
                 <p className="text-left patrick-hand text-lg md:text-2xl text-white mx-4 md:mx-8" id="profile-description">
                   Hello, and welcome to 'The Curious Melody'. <br/>
-                  My name is Shubham, and I am an engineer. Writing is one of my old hobbies. It started as an
+                  My name is Shubham, and I am a tech-enthusiast. Writing is one of my old hobbies. It started as an
                   activity to jot down my thoughts, and following the process over the years, I now have a collection
-                  I would like to share. Thank you for stopping by, and I hope you enjoy the site.
+                  I would like to share. Thank you for stopping by, and I hope you enjoy the site. To know more about me,
+                  checkout my&nbsp;
+                  <a href="https://shubhamraj23.github.io/personal-portfolio" target="_blank" rel="noreferrer">
+                    <span className="hover:text-black">
+                      personal portfolio.
+                    </span>
+                  </a>
                 </p>
               </div>
             </div>
