@@ -478,10 +478,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: span 5 / span 5;
 }
 
-.m-8 {
-  margin: 2rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -492,6 +488,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .my-16 {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -500,11 +501,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .mb-2 {
@@ -684,39 +680,33 @@ body::-webkit-scrollbar {
 /* Colours */
 
 .bg-shade-1 {
-  background-color: black;
+  background-color: #9a86a4;
 }
 
 .bg-shade-2 {
-  background-color: #242424;
+  background-color: #b1bce6;
 }
 
 .bg-shade-3 {
-  background-color: #484848;
+  background-color: #689bb9;
 }
 
 .bg-shade-4 {
-  background-color: #6b6b6b;
+  background-color: #f1f0c0;
 }
 
 .nav-active {
-  background-color: #383838;
+  background-color: #8a7396;
 }
 
 .nav-base {
-  background-color: #808080;
+  background-color: #b1a2b9;
 }
 
 /* Font Families */
 
-@font-face {
-  font-family: Cassandra;
-
-  src: url(media/Cassandra\ Personal\ Use.ttf);
-}
-
-.cassandra {
-  font-family: Cassandra;
+.dancing-script {
+  font-family: 'Dancing Script', cursive;
 }
 
 .patrick-hand {
@@ -752,13 +742,13 @@ body::-webkit-scrollbar {
 /* Tagline */
 
 .tagline-font {
-  font-size: 3.5vw;
+  font-size: 4.5vw;
   line-height: 1;
 }
 
 @media (min-width: 768px) {
   .tagline-font {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
   }
 }
 
@@ -845,18 +835,13 @@ body::-webkit-scrollbar {
     line-height: 1.5rem;
   }
 
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  .md\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }

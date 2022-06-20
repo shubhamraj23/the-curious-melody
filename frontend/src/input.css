@@ -9,37 +9,32 @@ body::-webkit-scrollbar {
 
 /* Colours */
 .bg-shade-1 {
-  background-color: black;
+  background-color: #9a86a4;
 }
 
 .bg-shade-2 {
-  background-color: #242424;
+  background-color: #b1bce6;
 }
 
 .bg-shade-3 {
-  background-color: #484848;
+  background-color: #689bb9;
 }
 
 .bg-shade-4 {
-  background-color: #6b6b6b;
+  background-color: #f1f0c0;
 }
 
 .nav-active {
-  background-color: #383838;
+  background-color: #8a7396;
 }
 
 .nav-base {
-  background-color: #808080;
+  background-color: #b1a2b9;
 }
 
 /* Font Families */
-@font-face {
-  font-family: Cassandra;
-  src: url(media/Cassandra\ Personal\ Use.ttf);
-}
-
-.cassandra {
-  font-family: Cassandra;
+.dancing-script {
+  font-family: 'Dancing Script', cursive;
 }
 
 .patrick-hand {
@@ -73,13 +68,13 @@ body::-webkit-scrollbar {
 
 /* Tagline */
 .tagline-font {
-  font-size: 3.5vw;
+  font-size: 4.5vw;
   line-height: 1;
 }
 
 @media (min-width: 768px) {
   .tagline-font {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
   }
 }
 
