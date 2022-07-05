@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Scroll Bar */
+body::-webkit-scrollbar { 
+  display: none 
+}
+
+/* Colors */
+.bg-color-1 {
+  background-color: #165954;
+}
+
+.bg-color-2 {
+  background-color: #f9ac66;
+}
+
+.bg-color-3 {
+  background-color: #ed6b5b;
+}
+
+.text-color-1 {
+  color: #165954
+}
+
+.text-color-2 {
+  color: #f9ac66;
+}
+
+.text-color-3 {
+  color: #ed6b5b;
+}
+
+/* Font Families */
+.dancing-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Header */
+.tagline-font {
+  font-size: 4vw;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {  
+  .tagline-font {
+    font-size: 3vw;
+  }
+}
