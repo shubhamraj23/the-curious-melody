@@ -48,3 +48,20 @@ body::-webkit-scrollbar {
     font-size: 3vw;
   }
 }
+
+/* Sidebar position */
+.side-hide {
+  left: -75vw;
+  transition: all linear 1s;
+}
+
+@media (min-width: 768px) {  
+  .side-hide {
+    left: -50vw;
+  }
+}
+
+.side-show {
+  left: 0;
+  transition: all linear 1s;
+}

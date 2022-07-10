@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Logo from '../media/logo-colorful.png'
 import { HiMenu } from "react-icons/hi";
 
-const Header = () => {
+const Header = ({changeState}) => {
   const [headerHeight, setHeight] = useState('100vh')
   const [fixedHeight, setFixedHeight] = useState('10vh')
   const [visibility, setVisibility] = useState('hidden')
@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <div className="bg-color-1">
       <div className="fixed top-2.5 left-2.5 md:top-5 md:left-5 z-20" id="side-toggle">
-        <HiMenu className="text-color-2 text-2xl md:text-3xl hover:cursor-pointer" />
+        <HiMenu className="text-color-2 text-2xl md:text-3xl hover:cursor-pointer" onClick={changeState} />
       </div>
       
       <div className="flex flex-col items-center justify-center py-8 md:py-12" style={{minHeight: `${headerHeight}`}}>
