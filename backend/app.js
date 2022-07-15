@@ -23,7 +23,7 @@ app.use(express.json()) // Converts the request headers into JSON
 
 // Setup the app to use build folder in production.
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('../frontend/build'))
+  app.use(express.static('./frontend/build'))
 }
 
 // Use all the different routers set up
