@@ -37,6 +37,10 @@ body::-webkit-scrollbar {
   font-family: 'Dancing Script', cursive;
 }
 
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
 /* Header */
 .tagline-font {
   font-size: 4vw;
@@ -64,4 +68,42 @@ body::-webkit-scrollbar {
 .side-show {
   left: 0;
   transition: all linear 1s;
+}
+
+.side-tag {
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 768px) {  
+  .side-tag {
+    font-size: small;
+  }
+}
+
+.profile-button {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border: #f9ac66 solid 1px;
+  border-radius: 28px;
+  color: #165954;
+  font-size: 20px;
+  background: #ed6b5b;
+  padding: 10px 40px 10px 40px;
+  text-decoration: none;
+}
+
+.profile-button:hover {
+  border: black solid 1px;
+}
+
+.profile-button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {  
+  .profile-button {
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+  }
 }
