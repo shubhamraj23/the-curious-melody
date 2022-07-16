@@ -510,6 +510,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 1rem;
 }
 
+.right-8 {
+  right: 2rem;
+}
+
 .z-20 {
   z-index: 20;
 }
@@ -559,6 +563,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .block {
@@ -617,6 +625,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow: hidden;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -651,6 +663,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-8 {
   padding-left: 2rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .align-middle {
@@ -698,6 +714,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* Scroll Bar */
 
 body::-webkit-scrollbar {
+  display: none
+}
+
+#sidebar::-webkit-scrollbar {
   display: none
 }
 
@@ -836,6 +856,10 @@ body::-webkit-scrollbar {
 
   .md\:right-10 {
     right: 2.5rem;
+  }
+
+  .md\:right-20 {
+    right: 5rem;
   }
 
   .md\:w-1\/3 {

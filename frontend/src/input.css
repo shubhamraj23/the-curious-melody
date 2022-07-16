@@ -7,6 +7,10 @@ body::-webkit-scrollbar {
   display: none 
 }
 
+#sidebar::-webkit-scrollbar { 
+  display: none 
+}
+
 /* Colors */
 .bg-color-1 {
   background-color: #165954;

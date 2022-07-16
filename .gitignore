@@ -1,4 +1,8 @@
+# Ignore these files
 node_modules
 .env
 frontend/node_modules
 frontend/build
+
+# But not these
+!frontend/.env
