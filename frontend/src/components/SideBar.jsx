@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImCross } from "react-icons/im";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import Logo from '../media/profile-image.jpg'
@@ -16,16 +16,23 @@ const SideBar = ({sideState, changeState}) => {
   const [poems, setPoems] = useState(0)
   const [stories, setStories] = useState(0)
   const [microtales, setMicrotales] = useState(0)
+  const [divStatus, setDivStatus] = useState('')
+  const [divCursor, setDivCursor] = useState('cursor-pointer')
 
+  useEffect(() => {
+    if (loading) {
+      setDivStatus('pointer-events-none')
+      setDivCursor('cursor-default')
+    }
+    else {
+      setDivStatus('')
+      setDivCursor('cursor-pointer')
+    }
+  }, [loading])
+  
   const changeDropDown = () => {
     if (dropDown === 'hidden') {
-      setDropDown('')
-      setDownArrow('hidden')
-      setUpArrow('')
-      setLoading(true)
       fetchCount()
-      setLoading(false)
-      setDropDownHeight('auto')
     } 
     else {
       setDropDown('hidden')
@@ -35,19 +42,28 @@ const SideBar = ({sideState, changeState}) => {
     }
   }
 
-  const fetchCount = () => {
-    // TODO
-    // Update fetchcount
-    // Add set states from above function to fetchcount
+  const fetchCount = async () => {
+    try {
+      setLoading(true)
+      const data = await axios.get('/countAll')
+      if (data.status !== 200){
+        throw new Error()
+      }
+      setArticles(data.data.article)
+      setPoems(data.data.poem)
+      setStories(data.data.story)
+      setMicrotales(data.data.microtale)
+      setError(false)
+      setLoading(false)
+      setDropDown('')
+      setDownArrow('hidden')
+      setUpArrow('')
+      setDropDownHeight('auto')
 
-
-    axios.get(process.env.REACT_APP_DEV + '/post/623ae0876106b4abd741ae5a')
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    } catch (e) {
+      setLoading(false)
+      setError(true)
+    }
   }
 
   return (
@@ -66,7 +82,7 @@ const SideBar = ({sideState, changeState}) => {
         <button className="profile-button roboto">View Profile</button>
       </div>
 
-      <div className="bg-color-3-shade-1 py-2 pl-4 cursor-pointer relative" onClick={changeDropDown}>
+      <div className={`bg-color-3-shade-1 py-2 pl-4 relative ${divStatus} ${divCursor}`} onClick={changeDropDown}>
         <p className="text-white">View the entire collection</p>
         <AiFillCaretDown className={`text-white absolute right-4 md:right-10 top-2.5 text-xl ${downArrow}`}></AiFillCaretDown>
         <AiFillCaretUp className={`text-white absolute right-4 md:right-10 top-2.5 text-xl ${upArrow}`}></AiFillCaretUp>
