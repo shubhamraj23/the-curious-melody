@@ -20,6 +20,14 @@ body::-webkit-scrollbar {
   background-color: #ed6b5b;
 }
 
+.bg-color-3-shade-1 {
+  background-color: #e94c39;
+}
+
+.bg-color-3-shade-2 {
+  background-color: #f08072;
+}
+
 .text-color-1 {
   color: #165954
 }
@@ -86,9 +94,10 @@ body::-webkit-scrollbar {
   -moz-border-radius: 28;
   border: #f9ac66 solid 1px;
   border-radius: 28px;
-  color: #165954;
+  color: white;
   font-size: 20px;
-  background: #ed6b5b;
+  font-weight: 550;
+  background: #e94c39;
   padding: 10px 40px 10px 40px;
   text-decoration: none;
 }

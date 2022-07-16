@@ -474,6 +474,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: absolute;
 }
 
+.relative {
+  position: relative;
+}
+
 .top-2\.5 {
   top: 0.625rem;
 }
@@ -500,6 +504,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .right-3 {
   right: 0.75rem;
+}
+
+.right-4 {
+  right: 1rem;
 }
 
 .z-20 {
@@ -585,6 +593,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 75%;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -599,6 +611,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .justify-center {
   justify-content: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .rounded-full {
@@ -620,8 +636,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 2rem;
 }
 
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pl-8 {
+  padding-left: 2rem;
 }
 
 .align-middle {
@@ -646,6 +675,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-semibold {
@@ -679,6 +713,14 @@ body::-webkit-scrollbar {
 
 .bg-color-3 {
   background-color: #ed6b5b;
+}
+
+.bg-color-3-shade-1 {
+  background-color: #e94c39;
+}
+
+.bg-color-3-shade-2 {
+  background-color: #f08072;
 }
 
 .text-color-1 {
@@ -750,9 +792,10 @@ body::-webkit-scrollbar {
   -moz-border-radius: 28;
   border: #f9ac66 solid 1px;
   border-radius: 28px;
-  color: #165954;
+  color: white;
   font-size: 20px;
-  background: #ed6b5b;
+  font-weight: 550;
+  background: #e94c39;
   padding: 10px 40px 10px 40px;
   text-decoration: none;
 }
@@ -789,6 +832,10 @@ body::-webkit-scrollbar {
 
   .md\:left-5 {
     left: 1.25rem;
+  }
+
+  .md\:right-10 {
+    right: 2.5rem;
   }
 
   .md\:w-1\/3 {
