@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { HiMenu } from "react-icons/hi";
-import Logo from '../media/logo-colorful.png'
+import { HiMenu } from 'react-icons/hi';
+import Logo from '../media/logo-colorful.png';
 
 const Header = ({changeState}) => {
   const [headerHeight, setHeight] = useState('100vh')

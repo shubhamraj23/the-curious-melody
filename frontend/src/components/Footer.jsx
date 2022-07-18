@@ -1,8 +1,8 @@
-import { MdWeb, MdMeetingRoom } from "react-icons/md";
+import { MdWeb, MdMeetingRoom } from 'react-icons/md';
 
 const Footer = () => {
   return (
-    <div className="bg-color-1">
+    <div className="bg-color-1" id="footer">
       <div className="py-4">
         <div className="px-4">
           <div className="pb-2">
