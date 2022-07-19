@@ -88,4 +88,31 @@ router.get('/countAll', async (request, response) => {
   }
 })
 
+// Router to get a list of all the recent posts with specified filters.
+router.get('/recentPosts', async (request, response) => {
+  try {
+    const match = {}
+    const limit = 5
+    const skip = (request.query.skip) ? parseInt(request.query.skip) : 0
+    if (request.query.type) {
+      match.type = request.query.type
+    }
+    if (request.query.lang) {
+      match.language = request.query.lang
+    }
+    const posts = await
+      Post.find(match)
+        .sort('-createdAt')
+        .select('-content -language -collectionID -updatedAt ')
+        .limit(limit)
+        .skip(skip)
+    response.status(200).send(posts)
+
+  } catch (e) {
+    response.status(500).send({
+      error: "Something unprecedented happened. Please try again."
+    })
+  }
+})
+
 module.exports = router
