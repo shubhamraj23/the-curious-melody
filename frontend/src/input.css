@@ -143,3 +143,18 @@ body::-webkit-scrollbar {
   border-color: #f9ac66;
   border-width: 10px;
 }
+
+/* Home Page Buttons */
+.home-button-border {
+  border-bottom: 5px #ed6b5b solid;
+}
+
+@layer utilities {
+  .home-button-hover-border {
+    border-bottom: 5px #f9ac66 solid;
+  }
+
+  .text-color-2 {
+    color: #f9ac66;
+  }
+}

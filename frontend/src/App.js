@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { useState } from 'react';
 import Header from './components/Header';
+import Body from './components/Body';
 import Footer from './components/Footer';
 import SideBar from './components/SideBar';
 import Profile from './components/Profile';
@@ -25,6 +26,7 @@ const App = () => {
             <>
               <SideBar sideState={sideState} changeState={toggleSideState} />
               <Header changeState={toggleSideState} />
+              <Body />
               <Footer />
             </>
           }></Route>
