@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react"
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Spinner from '../media/spinner.gif';
 
 const Body = () => {
   const [view, setView] = useState('post')
@@ -6,28 +8,89 @@ const Body = () => {
   const [postText, setPostText] = useState('text-color-3')
   const [collectionDiv, setCollectionDiv] = useState('hover:cursor-pointer hover:home-button-hover-border hover:text-color-2')
   const [collectionText, setCollectionText] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+  const [postFetchStatus, setPostFetchStatus] = useState(false)
+  const [collectionFetchStatus, setCollectionFetchStatus] = useState(false)
+  const [postData, setPostData] = useState()
+  const [collectionData, setCollectionData] = useState()
 
+  // Triger the fetching and change the states when the view changes.
   useEffect(() => {
     if (view === 'post'){
+      // Make structural changes before fetching.
       setPostDiv('home-button-border pointer-events-none')
       setPostText('text-color-3')
       setCollectionDiv('hover:cursor-pointer hover:home-button-hover-border hover:text-color-2')
       setCollectionText('')
+      setLoading(false)
+      setError(false)
+
+      if (!postFetchStatus) {   // Fetch only if it hasn't been fetched successfully before.
+        fetchPosts()
+      }
     }
     else {
+      // Make structural changes before fetching.
       setPostDiv('hover:cursor-pointer hover:home-button-hover-border hover:text-color-2')
       setPostText('')
       setCollectionDiv('home-button-border pointer-events-none')
       setCollectionText('text-color-3')
+      setLoading(false)
+      setError(false)
+
+      if (!collectionFetchStatus) {    // Fetch only if it hasn't been fetched successfully before.
+        fetchCollections()
+      }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view])
 
+  // Function to trigger the change between posts and collections.
   const changeView = () => {
     if (view === 'post') {
       setView('collection')
     }
     else {
       setView('post')
+    }
+  }
+
+  // Fetch the posts from the backend.
+  const fetchPosts = async () => {
+    try {
+      setLoading(true)
+      const data = await axios.get('/recentPosts')
+      if (data.status !== 200) {
+        throw new Error()
+      }
+      setPostData(data.data)
+      setPostFetchStatus(true)
+      setLoading(false)
+      setError(false)
+    }
+    catch (e) {
+      setLoading(false)
+      setError(true)
+    }
+  }
+
+  // Fetch the collections from the backend.
+  const fetchCollections = async () => {
+    try {
+      setLoading(true)
+      const data = await axios.get('/recentCollections')
+      if (data.status !== 200) {
+        throw new Error()
+      }
+      setCollectionData(data.data)
+      setCollectionFetchStatus(true)
+      setLoading(false)
+      setError(false)
+    }
+    catch (e) {
+      setLoading(false)
+      setError(true)
     }
   }
 
@@ -42,6 +105,21 @@ const Body = () => {
           <p className={`text-center font-bold ${collectionText}`}>Recent Collections</p>
         </div>
       </div>
+
+      {/* Display only when loading is true. */}
+      {loading && 
+        <div className="py-4">
+          <img src={Spinner} className="mx-auto" alt="Loading" />
+        </div>
+      }
+
+      {/* Display only when error is true. */}
+      {error &&
+        <div className="py-10 px-4">
+          <p className="text-center">Something unexpected happened. Please try again after a while.</p>
+        </div>
+      }
+
     </div>
   )
 }

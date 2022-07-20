@@ -9,6 +9,7 @@ import Profile from './components/Profile';
 const App = () => {
   const [sideState, setSideState] = useState('side-hide')
 
+  // Function to toggle the state of the side bar.
   const toggleSideState = () => {
     if (sideState === 'side-hide') {
       setSideState('side-show')
@@ -22,6 +23,7 @@ const App = () => {
     <div>
       <Router>
         <Routes>
+          {/* Default route to the home page. */}
           <Route path="/" element={
             <>
               <SideBar sideState={sideState} changeState={toggleSideState} />
@@ -31,6 +33,7 @@ const App = () => {
             </>
           }></Route>
 
+          {/* Route to the profile page. */}
           <Route path="/profile" element={
             <>
               <Profile />

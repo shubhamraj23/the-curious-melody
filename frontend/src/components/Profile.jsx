@@ -9,6 +9,7 @@ import Logo from '../media/profile-image.jpg';
 const Profile = () => {
   const [centerHeight, setCenterHeight] = useState('60vh')
 
+  // Set the height of the center div to ensure that the content at least fits the height of the screen.
   useEffect(() => {
     const height = window.innerHeight
     const headerHeight = document.getElementById('top-back').offsetHeight

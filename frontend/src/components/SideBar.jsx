@@ -21,6 +21,7 @@ const SideBar = ({sideState, changeState}) => {
   const [divStatus, setDivStatus] = useState('')
   const [divCursor, setDivCursor] = useState('cursor-pointer')
 
+  // Disable clicking the button when the contents are loading.
   useEffect(() => {
     if (loading) {
       setDivStatus('pointer-events-none')
@@ -32,9 +33,10 @@ const SideBar = ({sideState, changeState}) => {
     }
   }, [loading])
   
+  // Trigger the actions that happen when the drop down button is clicked.
   const changeDropDown = () => {
     if (dropDown === 'hidden') {
-      if (!fetchStatus) {
+      if (!fetchStatus) {           // Fetch the data only if it hasn't been done before. 
         fetchCount()
       }
       else {
@@ -49,6 +51,7 @@ const SideBar = ({sideState, changeState}) => {
     }
   }
 
+  // Fetch the data from the backend.
   const fetchCount = async () => {
     try {
       setLoading(true)
@@ -56,6 +59,8 @@ const SideBar = ({sideState, changeState}) => {
       if (data.status !== 200){
         throw new Error()
       }
+      
+      // Set all the values from the fetched data.
       setArticles(data.data.article)
       setPoems(data.data.poem)
       setStories(data.data.story)
@@ -69,6 +74,7 @@ const SideBar = ({sideState, changeState}) => {
     }
   }
 
+  // Change the states after successful fetch
   const updateFetch = () => {
     setError(false)
     setLoading(false)
@@ -124,12 +130,14 @@ const SideBar = ({sideState, changeState}) => {
         </div>
       </div>
 
+      {/* Display only when loading is true. */}
       {loading && 
         <div className="mt-4">
           <img src={Spinner} className="mx-auto" alt="Loading" />
         </div>
       }
 
+      {/* Display only when error is true. */}
       {error &&
         <div className="mt-10 px-4">
           <p className="text-center text-sm">Something unexpected happened. Please try again after a while.</p>
