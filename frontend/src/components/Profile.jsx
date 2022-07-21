@@ -29,21 +29,21 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 bg-color-4" style={{minHeight: `${centerHeight}`}}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 bg-color-4" style={{minHeight: `${centerHeight}`}}>
         <div className="grid-span-1 mt-10">
-          <img src={Logo} className="mx-auto w-1/2 lg:w-1/3 rounded-full mb-4 profile-pic-border" alt="The Author" />
-          <p className="spirax text-center text-base lg:text-xl font-semibold mb-4">Shubham Raj Pandit</p>
-          <p className="roboto text-center text-sm lg:text-lg">Look beneath the obvious</p>
-          <p className="roboto text-center text-sm lg:text-lg">There is always something bigger hidden</p>
+          <img src={Logo} className="mx-auto w-1/2 md:w-1/3 rounded-full mb-4 profile-pic-border max-w-xs" alt="The Author" />
+          <p className="spirax text-center text-base md:text-xl font-semibold mb-4">Shubham Raj Pandit</p>
+          <p className="roboto text-center text-sm md:text-lg">Look beneath the obvious</p>
+          <p className="roboto text-center text-sm md:text-lg">There is always something bigger hidden</p>
         </div>
 
         <div className="grid-span-1">
-          <div className="px-4 mt-6 lg:mt-10 mb-8">
+          <div className="px-4 mt-6 md:mt-10 mb-8">
             <div className="pb-2">
-              <p className="font-semibold text-base lg:text-lg text-black">Contact Details</p>
+              <p className="font-semibold text-base md:text-lg text-black">Contact Details</p>
             </div>
 
-            <div className="grid grid-cols-6 my-1 lg:my-5">
+            <div className="grid grid-cols-6 my-1 md:my-5">
               <div className="col-span-1">
                 <div className="flex align-middle">
                   <ImLocation className="text-2xl text-color-2 mx-auto mt-5" />
@@ -51,7 +51,7 @@ const Profile = () => {
               </div>
 
               <div className="col-span-5">
-                <p className="text-sm lg:text-base text-black font-semibold">
+                <p className="text-sm md:text-base text-black font-semibold">
                   #415, Padmavathy Paradise, <br />
                   BEML Layout, Brookefield, <br />
                   Bangalore, 560037
@@ -59,7 +59,7 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-6 my-3 lg:my-7">
+            <div className="grid grid-cols-6 my-3 md:my-7">
               <div className="col-span-1">
                 <div className="flex align-middle">
                   <MdEmail className="text-xl text-color-2 mx-auto" />
@@ -67,13 +67,13 @@ const Profile = () => {
               </div>
 
               <div className="col-span-5">
-                <p className="text-sm lg:text-base text-black font-semibold">
+                <p className="text-sm md:text-base text-black font-semibold">
                   shubhamraj465@gmail.com
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-6 my-3 lg:my-7">
+            <div className="grid grid-cols-6 my-3 md:my-7">
               <div className="col-span-1">
                 <div className="flex align-middle">
                   <BsTelephoneFill className="text-xl text-color-2 mx-auto" />
@@ -81,7 +81,7 @@ const Profile = () => {
               </div>
 
               <div className="col-span-5">
-                <p className="text-sm lg:text-base text-black font-semibold">
+                <p className="text-sm md:text-base text-black font-semibold">
                   +91-9589508180
                 </p>
               </div>
