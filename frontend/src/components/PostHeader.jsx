@@ -1,7 +1,7 @@
 const PostHeader = ({item}) => {
   return (
     <div className="my-2">
-      PostHeader
+      This line will be replaced by a post.
     </div>
   )
 }

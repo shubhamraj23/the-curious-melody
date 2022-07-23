@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
+import Filters from './Filters';
 import PostHeader from './PostHeader';
 import CollectionHeader from './CollectionHeader';
 import Spinner from '../media/spinner.gif';
@@ -23,14 +23,6 @@ const Body = () => {
   const [postData, setPostData] = useState()
   const [collectionData, setCollectionData] = useState()
 
-  // Type dropdown for posts.
-  const [typeDropdown, setTypeDropdown] = useState('down')
-  const [typeHeight, setTypeHeight] = useState('0px')
-
-  // Lang dropdown for posts.
-  const [langDropdown, setLangDropdown] = useState('down')
-  const [langHeight, setLangHeight] = useState('0px')
-  
   // Triger the fetching and change the states when the view changes.
   useEffect(() => {
     if (view === 'post'){
@@ -61,16 +53,6 @@ const Body = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view])
-
-  // Trigger when type drop down is clicked.
-  useEffect(() => {
-    (typeDropdown === 'down') ? setTypeHeight('0px') : setTypeHeight('auto')
-  }, [typeDropdown])
-
-  // Trigger when lang drop down is clicked.
-  useEffect(() => {
-    (langDropdown === 'down') ? setLangHeight('0px') : setLangHeight('auto')
-  }, [langDropdown])
 
   // Function to trigger the change between posts and collections.
   const changeView = () => {
@@ -120,18 +102,6 @@ const Body = () => {
     }
   }
 
-  // Function to change the state of type dropdown.
-  const changeTypeDropdown = () => {
-    (typeDropdown === 'up') ? setTypeDropdown('down') : setTypeDropdown('up')
-    setLangDropdown('down')
-  }
-
-  // Function to change the state of lang dropdown.
-  const changeLangDropdown = () => {
-    (langDropdown === 'up') ? setLangDropdown('down') : setLangDropdown('up')
-    setTypeDropdown('down')
-  }
-
   return (
     <div className="bg-color-4">
       <div className="grid grid-cols-2">
@@ -147,58 +117,8 @@ const Body = () => {
       {/* Display only if the view is set to post */}
       {view === 'post' && postData &&
         <div className="py-4 mx-4 md:mx-20">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-            <div className="grid-span-1 relative inline-block text-left">
-              <div>
-                <button
-                  type="button"
-                  className="inline-flex w-full md:w-fit justify-center mx-auto rounded-md border border-gray-300 shadow-sm px-4 md:px-10 py-2 bg-white text-sm font-medium text-black focus:outline-none"
-                  id="type-dropdown"
-                  onClick={changeTypeDropdown}
-                  >
-                  Type of Posts
-                  <AiFillCaretDown className={`-mr-1 ml-2 h-5 w-5 ${(typeDropdown === 'up' && 'hidden')}`} />
-                  <AiFillCaretUp className={`-mr-1 ml-2 h-5 w-5 ${(typeDropdown === 'down' && 'hidden')}`} />
-                </button>
-              </div>
+          <Filters />
 
-              <div class="absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden" style={{height: `${typeHeight}`}}>
-                <div class="py-1">
-                  <p class="text-gray-700 block px-4 py-2 text-sm">Articles</p>
-                  <p class="text-gray-700 block px-4 py-2 text-sm">Poems</p>
-                  <p class="text-gray-700 block px-4 py-2 text-sm">Stories</p>
-                  <p class="text-gray-700 block px-4 py-2 text-sm">Microtales</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid-span-1 relative inline-block text-left">
-              <div>
-                <button
-                  type="button"
-                  className="inline-flex w-full md:w-fit justify-center mx-auto rounded-md border border-gray-300 shadow-sm px-4 md:px-10 py-2 bg-white text-sm font-medium text-black focus:outline-none"
-                  id="type-dropdown"
-                  onClick={changeLangDropdown}
-                  >
-                  Language
-                  <AiFillCaretDown className={`-mr-1 ml-2 h-5 w-5 ${(langDropdown === 'up' && 'hidden')}`} />
-                  <AiFillCaretUp className={`-mr-1 ml-2 h-5 w-5 ${(langDropdown === 'down' && 'hidden')}`} />
-                </button>
-              </div>
-
-              <div class="absolute left-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden" style={{height: `${langHeight}`}}>
-                <div class="py-1">
-                  <p class="text-gray-700 block px-4 py-2 text-sm">English</p>
-                  <p class="text-gray-700 block px-4 py-2 text-sm">Hindi</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid-span-1 col-start-2 md:col-start-3">
-              RESET ALL
-            </div>
-          </div>
-          
           <div>
             {postData.map((item) => {
               return <PostHeader item={item} />

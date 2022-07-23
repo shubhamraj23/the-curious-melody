@@ -36,6 +36,10 @@ body::-webkit-scrollbar {
   background-color: #dcdcdc;
 }
 
+.bg-color-5 {
+  background-color: #bcbcbc;
+}
+
 .text-color-1 {
   color: #165954
 }
@@ -149,6 +153,12 @@ body::-webkit-scrollbar {
   border-bottom: 5px #ed6b5b solid;
 }
 
+/* Filters */
+.reset-button:active {
+  transform: scale(0.95);
+}
+
+/* Utilities */
 @layer utilities {
   .home-button-hover-border {
     border-bottom: 5px #f9ac66 solid;
@@ -156,5 +166,9 @@ body::-webkit-scrollbar {
 
   .text-color-2 {
     color: #f9ac66;
+  }
+
+  .bg-color-5 {
+    background-color: #bcbcbc;
   }
 }
