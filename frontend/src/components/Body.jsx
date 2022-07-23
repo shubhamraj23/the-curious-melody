@@ -23,6 +23,10 @@ const Body = () => {
   const [postData, setPostData] = useState()
   const [collectionData, setCollectionData] = useState()
 
+  // The filters used for the posts.
+  const [type, setType] = useState('all')
+  const [lang, setLang] = useState('all')
+
   // Triger the fetching and change the states when the view changes.
   useEffect(() => {
     if (view === 'post'){
@@ -54,6 +58,12 @@ const Body = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view])
 
+  // Fetch the data whenever the filters change.
+  useEffect(() => {
+    fetchPosts()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [type, lang])
+
   // Function to trigger the change between posts and collections.
   const changeView = () => {
     if (view === 'post') {
@@ -64,11 +74,25 @@ const Body = () => {
     }
   }
 
-  // Fetch the posts from the backend.
+  // Fetch the posts from the backend and set the other states.
   const fetchPosts = async () => {
     try {
       setLoading(true)
-      const data = await axios.get('/recentPosts')
+
+      let data = undefined
+      if (type === 'all' && lang === 'all') {
+        data = await axios.get('/recentPosts')
+      }
+      else if (type === 'all') {
+        data = await axios.get(`/recentPosts?lang=${lang}`)
+      }
+      else if (lang === 'all') {
+        data = await axios.get(`/recentPosts?type=${type}`)
+      }
+      else {
+        data = await axios.get(`/recentPosts?type=${type}&lang=${lang}`)
+      }
+
       if (data.status !== 200) {
         throw new Error()
       }
@@ -117,7 +141,7 @@ const Body = () => {
       {/* Display only if the view is set to post */}
       {view === 'post' && postData &&
         <div className="py-4 mx-4 md:mx-20">
-          <Filters />
+          <Filters type={type} setType={setType} lang={lang} setLang={setLang} />
 
           <div>
             {postData.map((item) => {

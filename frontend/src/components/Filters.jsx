@@ -2,18 +2,16 @@ import { useState, useEffect } from 'react';
 import { AiFillCaretDown, AiFillCaretUp } from 'react-icons/ai';
 import { GoCheck } from "react-icons/go";
 
-const Filters = () => {
+const Filters = ({type, setType, lang, setLang}) => {
   // Type Dropdowns
   const [typeDropdown, setTypeDropdown] = useState('down')
   const [typeHeight, setTypeHeight] = useState('0px')
   const [typeWidth, setTypeWidth] = useState('auto')
-  const [type, setType] = useState('all')
 
   // lang Dropdowns
   const [langDropdown, setLangDropdown] = useState('down')
   const [langHeight, setLangHeight] = useState('0px')
   const [langWidth, setLangWidth] = useState('auto')
-  const [lang, setLang] = useState('all')
 
   // Set the width of the dropdowns
   useEffect(() => {
@@ -72,11 +70,11 @@ const Filters = () => {
           </button>
         </div>
 
-        <div class="absolute left-0 mt-2 rounded-md shadow-lg bg-white focus:outline-none overflow-hidden" style={{height: `${typeHeight}`}}>
-          <div class="py-1" style={{width: `${typeWidth}`}}>
+        <div className="absolute left-0 mt-2 rounded-md shadow-lg bg-white focus:outline-none overflow-hidden" style={{height: `${typeHeight}`}}>
+          <div className="py-1" style={{width: `${typeWidth}`}}>
             <div className="relative">
               <p 
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'all') && 'cursor-pointer'}`}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'all') && 'cursor-pointer'}`}
                 onClick={() => setType('all')}
                 >
                 All
@@ -86,42 +84,42 @@ const Filters = () => {
             
             <div className="relative">
               <p
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'articles') && 'cursor-pointer'}`}
-                onClick={() => setType('articles')}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'article') && 'cursor-pointer'}`}
+                onClick={() => setType('article')}
                 >
                 Articles
               </p>
-              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'articles') && 'hidden'}`} />
+              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'article') && 'hidden'}`} />
             </div>
 
             <div className="relative">
               <p
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'poems') && 'cursor-pointer'}`}
-                onClick={() => setType('poems')}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'poem') && 'cursor-pointer'}`}
+                onClick={() => setType('poem')}
                 >
                 Poems
                 </p>
-              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'poems') && 'hidden'}`} />
+              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'poem') && 'hidden'}`} />
             </div>
 
             <div className="relative">
               <p 
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'stories') && 'cursor-pointer'}`}
-                onClick={() => setType('stories')}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'story') && 'cursor-pointer'}`}
+                onClick={() => setType('story')}
                 >
                 Stories
               </p>
-              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'stories') && 'hidden'}`} />
+              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'story') && 'hidden'}`} />
             </div>
 
             <div className="relative">
               <p 
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'microtales') && 'cursor-pointer'}`}
-                onClick={() => setType('microtales')}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(type !== 'microtale') && 'cursor-pointer'}`}
+                onClick={() => setType('microtale')}
                 >
                 Microtales
               </p>
-              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'microtales') && 'hidden'}`} />
+              <GoCheck className={`absolute right-4 bottom-0 h-9 ${(type !== 'microtale') && 'hidden'}`} />
             </div>
           </div>
         </div>
@@ -141,11 +139,11 @@ const Filters = () => {
           </button>
         </div>
 
-        <div class="absolute left-0 mt-2 rounded-md shadow-lg bg-white focus:outline-none overflow-hidden" style={{height: `${langHeight}`}}>
-          <div class="py-1" style={{width: `${langWidth}`}}>
+        <div className="absolute left-0 mt-2 rounded-md shadow-lg bg-white focus:outline-none overflow-hidden" style={{height: `${langHeight}`}}>
+          <div className="py-1" style={{width: `${langWidth}`}}>
             <div className="relative">
               <p 
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(lang !== 'all') && 'cursor-pointer'}`}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(lang !== 'all') && 'cursor-pointer'}`}
                 onClick={() => setLang('all')}
                 >
                 All
@@ -155,7 +153,7 @@ const Filters = () => {
 
             <div className="relative">
               <p
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(lang !== 'English') && 'cursor-pointer'}`}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(lang !== 'English') && 'cursor-pointer'}`}
                 onClick={() => setLang('english')}
                 >
                 English
@@ -165,7 +163,7 @@ const Filters = () => {
 
             <div className="relative">
               <p 
-                class={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(lang !== 'hindi') && 'cursor-pointer'}`}
+                className={`text-gray-800 block px-4 py-2 text-sm hover:bg-color-5 ${(lang !== 'hindi') && 'cursor-pointer'}`}
                 onClick={() => setLang('hindi')}
                 >
                 Hindi
@@ -182,7 +180,7 @@ const Filters = () => {
           className="inline-flex w-full md:w-fit justify-center mx-auto rounded-md border border-gray-300 shadow-sm px-4 md:px-10 py-2 bg-color-5 text-sm font-medium text-black focus:outline-none reset-button"
           onClick={() => {setType('all'); setLang('all')}}
           >
-        RESET ALL
+          RESET ALL
         </button>
       </div>
     </div>

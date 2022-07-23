@@ -1,7 +1,7 @@
 const PostHeader = ({item}) => {
   return (
     <div className="my-2">
-      This line will be replaced by a post.
+      {item.type !== 'microtale' ? item.title : item._id}
     </div>
   )
 }
