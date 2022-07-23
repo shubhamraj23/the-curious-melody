@@ -139,15 +139,17 @@ const Body = () => {
       </div>
 
       {/* Display only if the view is set to post */}
-      {view === 'post' && postData && !loading &&
+      {view === 'post' && postData &&
         <div className="py-4 mx-4 md:mx-20">
           <Filters type={type} setType={setType} lang={lang} setLang={setLang} />
 
-          <div>
-            {postData.map((item) => {
-              return <PostHeader item={item} />
-            })}
-          </div>
+          {!loading &&
+            <div>
+              {postData.map((item) => {
+                return <PostHeader item={item} />
+              })}
+            </div>
+          }
         </div>
       }
 
