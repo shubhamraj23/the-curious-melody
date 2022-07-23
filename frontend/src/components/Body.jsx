@@ -139,7 +139,7 @@ const Body = () => {
       </div>
 
       {/* Display only if the view is set to post */}
-      {view === 'post' && postData &&
+      {view === 'post' && postData && !loading &&
         <div className="py-4 mx-4 md:mx-20">
           <Filters type={type} setType={setType} lang={lang} setLang={setLang} />
 
